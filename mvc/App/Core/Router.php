@@ -51,7 +51,7 @@ class Router
                 $this->controller=new $this->controller;
                 $this->controller->index();
             } else{
-                $this->controller='App\Controller'.DIRECTORY_SEPARATOR.$this->controller;
+                $this->controller='App\Controller\\'.$this->controller;
                 if (class_exists($this->controller)){
                     $this->controller = new $this->controller();
                     if (is_callable([$this->controller, $this->action])) {
@@ -63,7 +63,7 @@ class Router
                         }
 
                     } else {
-                        if (strlen($this->action) == 0) {
+                        if (strlen($this->action ?? '') == 0) {
                             $this->controller->index();
                         }
                         else{

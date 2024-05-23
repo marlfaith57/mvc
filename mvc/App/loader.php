@@ -6,7 +6,7 @@
     define('domain', $_SERVER['HTTP_HOST']);
     define('assets', str_replace(public_folder, '', dirname($_SERVER['SCRIPT_NAME'])));
     define('url',protocol.domain.assets);
-    define('www_root',$_SERVER['DOCUMENT_ROOT'].'/mvc/public');//this will get the root where the file folder is located in this case C:/xampp/htdocs/
+    define('www_root',$_SERVER['DOCUMENT_ROOT'].'/public');//this will get the root where the file folder is located in this case C:/xampp/htdocs/
 
 	/* gets the root and the App directory */
 	/* output : C:\xampp\htdocs\mvc

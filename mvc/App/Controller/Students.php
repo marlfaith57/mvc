@@ -14,7 +14,6 @@ class Students
 
     public function add()
     {
-        View::render('Students/add');
         if(isset($_POST['add'])){
             $post = array_merge($_POST, $_FILES);
             $result=Student::add($post);
@@ -28,6 +27,7 @@ class Students
                 header('location:'.url.'Students');
             }
         }
+        View::render('Students/add');
     }
 
     public function edit($id = null)
@@ -36,7 +36,6 @@ class Students
         foreach ($student as $row) {
             $image = $row->image;
         }
-        View::render('Students/edit',$student);
         if(isset($_POST['edit'])){
             $post = array_merge($_POST, $_FILES);
             $result=Student::edit($post);
@@ -54,6 +53,7 @@ class Students
                 header('location:'.url.'Students');
             }
         }
+        View::render('Students/edit',$student);
     }
 
     public function delete($id = null)

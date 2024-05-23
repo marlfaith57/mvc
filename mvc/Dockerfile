@@ -19,7 +19,7 @@ RUN apt-get update && apt-get install -y \
 # RUN npm install bootstrap
 COPY . .
 RUN chown -R www-data:www-data ./
-ENV APACHE_DOCUMENT_ROOT /var/www/html
+ENV APACHE_DOCUMENT_ROOT /var/www/html/
 # WORKDIR /var/www/html/public
 # RUN npm install
 RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf

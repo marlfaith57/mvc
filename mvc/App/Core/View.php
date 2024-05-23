@@ -7,8 +7,8 @@ class View
 	/* loads gets the file sent from the controller */
     public static function render($view, $args = [])
     {
-        $head = app . "View/Template/Head.php";
-        $footer = app . "View/Template/Footer.php";
+        $head = app . "View/Template/head.php";
+        $footer = app . "View/Template/footer.php";
         $file = app . "View/$view".".php";
         if(isset($_SESSION['id'])){
             require $head;

@@ -4,8 +4,8 @@ services:
     build: ./mvc/.
     ports:
       - "80:80"
-    # volumes:
-    #   - ./mvc:/var/www/html
+    volumes:
+      - ./mvc:/var/www/html
     networks:
       - mvc-network
   mysql:

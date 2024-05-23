@@ -1,9 +1,9 @@
 <div class="card">
     <div class="card-header bg-black">
         <div class="card-title text-white">
-            Students
+            Products
             <div style="float: right;">
-                <a href="<?= url ?>Students/add">Add</a>
+                <a href="<?= url ?>Products/add">Add</a>
             </div>
         </div>
     </div>
@@ -24,8 +24,8 @@
                         <td><?= $product->price ?></td>
                       
                         <td>
-                            <a href="<?= url ?>Students/edit/<?= $product->id ?>">Edit</a> |
-                            <a href="<?= url ?>Students/delete/<?= $product->id ?>">Delete</a>
+                            <a href="<?= url ?>Products/edit/<?= $product->id ?>">Edit</a> |
+                            <a href="<?= url ?>Products/delete/<?= $product->id ?>">Delete</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

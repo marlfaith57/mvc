@@ -21,25 +21,25 @@ class Users
 
     public function add()
     {
-        View::render('Users/add');
         if(isset($_POST['add'])){
             $result= User::add($_POST);
             if($result){
                 header('location:'.url.'Users');
             }
         }
+        View::render('Users/add');
     }
 
     public function edit($id = null)
     {
         $user= User::getUserByID($id);
-        View::render('Users/edit',$user);
         if(isset($_POST['edit'])){
             $result=User::edit($_POST);
             if($result){
                 header('location:'.url.'Users');
             }
         }
+        View::render('Users/edit',$user);
     }
 
     public function delete($id = null)
@@ -55,7 +55,7 @@ class Users
 
     public function login()
     {
-        View::render('Users/login');
+        
         if(isset($_POST['login'])){
             $user=User::login($_POST);
             if(!empty($user)){
@@ -65,6 +65,7 @@ class Users
                 header('location:'.url.'Users/login');
             }
         }
+        View::render('Users/login');
     }
 
     public function logout()

@@ -14,34 +14,34 @@ class Products
 
     public function add()
     {
-        View::render('Students/add');
         if(isset($_POST['add'])){
-            $result=Student::add($_POST);
+            $result=Product::add($_POST);
             if($result){
-                header('location:'.url.'Students');
+                header('location:'.url.'Products');
             }
         }
+        View::render('Products/add');
     }
 
     public function edit($id = null)
     {
-        $student=Student::getStudentByID($id);
-        View::render('Students/edit',$student);
+        $product=Product::getProductByID($id);
         if(isset($_POST['edit'])){
-            $result=Student::edit($_POST);
+            $result=Product::edit($_POST);
             if($result){
-                header('location:'.url.'Students');
+                header('location:'.url.'Products');
             }
         }
+        View::render('Products/edit',$product);
     }
 
     public function delete($id = null)
     {
         if(!$id==null)
         {
-            $result=Student::delete($id);
+            $result=Product::delete($id);
             if($result){
-                header('location:'.url.'Students');
+                header('location:'.url.'Products');
             }
         }
     }
