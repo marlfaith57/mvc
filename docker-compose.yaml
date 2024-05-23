@@ -1,0 +1,42 @@
+version: "3.9"  # optional since v1.27.0
+services:
+  mvc_app:
+    build: ./mvc/.
+    ports:
+      - "80:80"
+    # volumes:
+    #   - ./mvc:/var/www/html
+    networks:
+      - mvc-network
+  mysql:
+    image: mysql:latest
+    ports:
+      - "127.0.0.1:3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: mvc_db
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
+    volumes:
+      - db-data:/var/lib/mysql
+    networks:
+      - mvc-network
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    links:
+      - mysql
+    environment:
+      PMA_HOST: mysql
+    restart: unless-stopped 
+    ports:
+      - 8087:80
+    networks:
+      - mvc-network
+
+networks:
+  mvc-network:
+    driver: bridge        
+
+volumes:
+  db-data:
+    driver: local
